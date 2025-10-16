@@ -1,0 +1,34 @@
+UPDATE blog_posts SET titreimage='des personnes floues se déplacent rapidement dans un espace de bureau lumineux, avec de grandes baies vitrées' WHERE blog_posts_id=1;
+UPDATE blog_posts SET titreimage='trois coworkers en tenue formelle échangent dans une salle de réunion au style industriel, autour d’une table de travail couverte de documents et d''ordinateurs' WHERE blog_posts_id=10;
+UPDATE blog_posts SET titreimage='trois coworkers échangent autour d’un café dans un espace de coworking chaleureux aux tons boisés et végétalisés' WHERE blog_posts_id=11;
+UPDATE blog_posts SET titreimage='réunion de coworkers en salle lumineuse, où un intervenant mène une discussion dynamique devant un groupe attentif' WHERE blog_posts_id=12;
+UPDATE blog_posts SET titreimage='coworkers réunis dans un espace de coworking design baigné de lumière naturelle, échangeant autour d’un canapé vintage et d’une balançoire suspendue' WHERE blog_posts_id=13;
+UPDATE blog_posts SET titreimage='groupe de coworkers en pleine session de brainstorming, installés confortablement sur des poufs dans un espace de coworking convivial, entre ordinateurs, graphiques et prise de notes' WHERE blog_posts_id=14;
+UPDATE blog_posts SET titreimage='groupe de coworkers riant ensemble autour d’une table basse dans un espace de coworking chaleureux, mêlant fauteuils confortables, balançoire suspendue' WHERE blog_posts_id=15;
+UPDATE blog_posts SET titreimage='jeunes coworkers assis sur des poufs dans un espace de coworking chaleureux, travaillant de manière détendue sur ordinateurs portables et supports imprimés' WHERE blog_posts_id=16;
+UPDATE blog_posts SET titreimage='coworkers installés en rangée dans un espace de coworking urbain, certains concentrés sur leurs ordinateurs portables, d’autres échangeant debout dans une ambiance décontractée et connectée' WHERE blog_posts_id=17;
+UPDATE blog_posts SET titreimage='présentation professionnelle dans un espace de coworking vitré, où un intervenant explique un graphique sur paperboard pendant que des coworkers travaillent en équipe sur leurs ordinateurs' WHERE blog_posts_id=18;
+UPDATE blog_posts SET titreimage='pause café entre collègues dans un couloir de coworking, avec des sourires et échanges informels' WHERE blog_posts_id=19;
+UPDATE blog_posts SET titreimage='groupe de coworkers en pleine discussion autour d’un ordinateur portable dans un espace de coworking moderne' WHERE blog_posts_id=2;
+UPDATE blog_posts SET titreimage='équipe de coworkers rassemblés autour d’une table dans un espace de coworking au style industriel, échangeant pendant une réunion collaborative' WHERE blog_posts_id=20;
+UPDATE blog_posts SET titreimage='accueil chaleureux entre coworkers dans une salle de réunion vitrée, avec poignée de main et sourires' WHERE blog_posts_id=21;
+UPDATE blog_posts SET titreimage='groupe de coworkers réunis autour d’un ordinateur portable dans un espace de coworking au design industriel chic, avec canapés' WHERE blog_posts_id=22;
+UPDATE blog_posts SET titreimage='homme en costume signant un document sur une table en bois, dans un bureau avec étagères et grande verrière' WHERE blog_posts_id=23;
+UPDATE blog_posts SET titreimage='jeune femme à lunettes qui regarde par la fenêtre dans un espace de coworking' WHERE blog_posts_id=24;
+UPDATE blog_posts SET titreimage='jeune femme à lunettes qui regarde par la fenêtre dans un espace de coworking' WHERE blog_posts_id=25;
+UPDATE blog_posts SET titreimage='jeune femme à lunettes qui regarde par la fenêtre dans un espace de coworking' WHERE blog_posts_id=26;
+UPDATE blog_posts SET titreimage='groupe de jeunes coworkers en pleine séance de brainstorming autour d’un paperboard, dans un espace de coworking' WHERE blog_posts_id=27;
+UPDATE blog_posts SET titreimage='coworker travaillant seul sur un ordinateur portable, assis sur une banquette design orange au cœur d’un espace de coworking' WHERE blog_posts_id=28;
+UPDATE blog_posts SET titreimage='coworkers échangeant par petits groupes dans un espace de coworking spacieux et lumineux, avec de grandes baies vitrées donnant sur un immeuble urbain' WHERE blog_posts_id=29;
+UPDATE blog_posts SET titreimage='deux coworkers concentrés devant un écran d’ordinateur dans un open space' WHERE blog_posts_id=3;
+UPDATE blog_posts SET titreimage='groupe de coworkers réunis autour d’un ordinateur portable dans un espace de coworking au design industriel chic, avec canapés' WHERE blog_posts_id=30;
+UPDATE blog_posts SET titreimage='quatre coworkers assis sur des fauteuils poire dans un espace de coworking, échangeant et travaillant sur ordinateurs portables et documents visuels' WHERE blog_posts_id=4;
+UPDATE blog_posts SET titreimage='coworkers concentrés travaillant chacun sur leur ordinateur dans un espace de coworking' WHERE blog_posts_id=5;
+UPDATE blog_posts SET titreimage='coworkers concentrés dans un espace de travail collaboratif, mêlant écrans d’ordinateur, tablettes et échanges entre collègues autour d’un bureau partagé' WHERE blog_posts_id=6;
+UPDATE blog_posts SET titreimage='coworkers concentrés travaillant sur ordinateurs dans un open space lumineux au design industriel' WHERE blog_posts_id=7;
+UPDATE blog_posts SET titreimage='trois coworkers concentrées, installées autour d’une grande table en bois dans un espace de coworking, travaillant sur ordinateurs portables et carnets' WHERE blog_posts_id=8;
+UPDATE blog_posts SET titreimage='groupe de coworkers en train de s’étirer ensemble dans une salle de réunion' WHERE blog_posts_id=9;
+UPDATE blog_posts SET titreimage='groupe de coworkers en train de s’étirer ensemble dans une salle de réunion' WHERE blog_posts_id=9;
+
+
+UPDATE versionbdd SET versionNUM=11, libelle="Revision 11";

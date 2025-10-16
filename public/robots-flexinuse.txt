@@ -1,0 +1,24 @@
+
+User-agent: *
+
+Disallow: /cgu
+Disallow: /backOffice/*
+Disallow: /mon-compte/*
+Disallow: /confidentialite
+Disallow: /mentionslegales
+Disallow: /tel:+33755537147
+Disallow: /deposer-une-annonce/creation
+Disallow: /oups
+Disallow: /404
+Disallow: /comingSoon
+
+# English pages
+Disallow: /about/*
+Disallow: /profile/*
+Disallow: /right/*
+
+Disallow: api.flexinuse.fr
+Allow: api.flexinuse.fr/api/public/imageProperty/*
+
+
+Sitemap: https://flexinuse.fr/sitemap.xml
