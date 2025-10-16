@@ -9,7 +9,12 @@ use App\Models\Restapiappel  as Restapiappel;
 
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url;
-
+/*
+Problem  avec spatie sitemap que j'ai supprimé de composer.json
+    - spatie/laravel-sitemap[7.2.0, ..., 7.2.1] require php ^8.2 -> your php version (8.1.2) does not satisfy that requirement.
+    - spatie/laravel-sitemap[7.3.0, ..., 7.3.7] require php ^8.2||^8.3||^8.4 -> your php version (8.1.2) does not satisfy that requirement.
+    - Root composer.json requires spatie/laravel-sitemap ^7.2 -> satisfiable by spatie/laravel-sitemap[7.2.0, ..., 7.3.7].
+*/
 
 class GenerateSitemap extends Command
 {
