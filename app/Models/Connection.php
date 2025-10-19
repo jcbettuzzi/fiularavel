@@ -10,6 +10,7 @@ class Connection {
      */
     
     private static $connBLOGAREA;
+    private static $connBLOGAREAPG;
     
     public function getMDP(){
 		//return true;
@@ -34,7 +35,7 @@ class Connection {
         $MyMdp = getenv('BLOGAREAMDP');
         //$MyMdp = "xtiever";
         //dd($MyMdp);
-        $MyDbname = $this->getPrefixeBDD()."blogarea";
+        $MyDbname = $this->getPrefixeBDD()."blogarea";        
         //$MyDbname = "blogarea";
         //$MyDbname ="rbmgnew";        
         //$pdo = new PDO("mysql:host=$Myhost;dbname=$MyDbname", $MyUser, $MyMdp,array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4',PDO::ATTR_PERSISTENT => true));
@@ -49,6 +50,24 @@ class Connection {
         }
  
         return static::$connBLOGAREA;
+    }
+    
+    public function connectBLOGAREA_PG() {
+        //$Myhost = "192.168.1.6";
+        $Myhost = "192.168.1.18";
+        //$Myhost = "192.168.3.23";
+        $MyUser =  "postgres";    
+        $MyMdp = "xtiever";    
+        $dsn = "pgsql:host=$Myhost;port=5432;dbname=blogarea;";
+        $pdo = new PDO($dsn, "postgres", "xtiever", [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+        return $pdo;
+    }
+     
+    public static function getBLOGAREA_PG() {
+        if (null === static::$connBLOGAREAPG) {
+            static::$connBLOGAREAPG = new static();
+        }
+        return static::$connBLOGAREAPG;
     }
     
 

@@ -85,6 +85,24 @@ class Blogdata extends Bddclass
     return 0;
     }
     
+    public function blog_post_categories_select_all() {
+        try { $start = microtime(true);	
+        
+                $Pdo = $this->connectbase("blogarea");
+                $sqlExecSP   = "CALL blog_post_categories_select_all()";
+                
+                $stmt = $Pdo->prepare($sqlExecSP);                
+                $stmt->execute();
+                $result=$stmt->FetchAll();
+                $stmt = null;
+                $Pdo = null;
+                $this->EcrireLogueSE($sqlExecSP,basename(__FILE__), __FUNCTION__,microtime(true)-$start);
+                return $result;
+        }catch (Exception $e) {
+                        $this->traiteerreur($e);
+            }
+        return 0;
+        }
 
     public function blog_post_categories_insert($blogpostid ,$blogcategorieid) {
                 try { $start = microtime(true);	
@@ -388,6 +406,44 @@ class Blogdata extends Bddclass
                         try { $start = microtime(true);	
                             $Pdo = $this->connectbase("blogarea");
                             $sqlExecSP   = "CALL blog_categories_select_all()";
+                            
+                            $stmt = $Pdo->prepare($sqlExecSP);
+                            //$stmt->bindParam(1, $blogid,   PDO::PARAM_INT);
+                            $stmt->execute();
+                            $result=$stmt->FetchAll();                        
+                            $stmt = null;
+                            $Pdo = null;			
+                            $this->EcrireLogueSE($sqlExecSP,basename(__FILE__), __FUNCTION__,microtime(true)-$start);
+                            return $result;
+                        }catch (Exception $e) {
+                            $this->traiteerreur($e);
+                        }
+                        return null;
+                    }
+                    
+                    public function blog_categories_select_all_asc() {
+                        try { $start = microtime(true);	
+                            $Pdo = $this->connectbase("blogarea");
+                            $sqlExecSP   = "CALL blog_categories_select_all_asc()";
+                            
+                            $stmt = $Pdo->prepare($sqlExecSP);
+                            //$stmt->bindParam(1, $blogid,   PDO::PARAM_INT);
+                            $stmt->execute();
+                            $result=$stmt->FetchAll();                        
+                            $stmt = null;
+                            $Pdo = null;			
+                            $this->EcrireLogueSE($sqlExecSP,basename(__FILE__), __FUNCTION__,microtime(true)-$start);
+                            return $result;
+                        }catch (Exception $e) {
+                            $this->traiteerreur($e);
+                        }
+                        return null;
+                    }
+                    
+                    public function blog_posts_select_all_order_byblog_categorie_id() {
+                        try { $start = microtime(true);	
+                            $Pdo = $this->connectbase("blogarea");
+                            $sqlExecSP   = "CALL blog_posts_select_all_order_byblog_categorie_id()";
                             
                             $stmt = $Pdo->prepare($sqlExecSP);
                             //$stmt->bindParam(1, $blogid,   PDO::PARAM_INT);

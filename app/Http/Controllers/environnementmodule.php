@@ -18,6 +18,7 @@ function mettreenplaceenvironnement($NomfichierEnv){
             if ($MotCle1 =="BLOGAREAHOST") { putenv("BLOGAREAHOST=$Param"); }            
             if ($MotCle1 =="BLOGAREAUSER") { putenv("BLOGAREAUSER=$Param"); }
             if ($MotCle1 =="BLOGAREAMDP") { putenv("BLOGAREAMDP=$Param"); }
+            if ($MotCle1 =="PREFIXBDD") { putenv("PREFIXBDD=$Param");}
 
             //echo "Mot cle 1 = ".$MotCle1  . "        Param =". $Param ."\n" ; // piece2
         }
