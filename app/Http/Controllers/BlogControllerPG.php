@@ -110,7 +110,8 @@ class BlogControllerPG extends Controller
             }
             
             $oneBlog['imageLargeChemin'] = asset('recupereimageBLOG')."/".$oneBlog['blog_posts_id']."/".$oneBlog['image_large']."/3";
-            $categoryBlog = $blogdata->blog_post_categories_select($oneBlog['blog_posts_id']);
+            //$categoryBlog = $blogdata->blog_post_categories_select($oneBlog['blog_posts_id']);
+            $categoryBlog = $Blogdata_PG->a_blog_post_categories_select($oneBlog['blog_posts_id']);
             $allCategoryName = array_column($categoryBlog,'category_name');            
             $oneBlog['categoryOfBlog'] = $allCategoryName;
             $oneBlog['catogory_id_blog'] = array_column($categoryBlog,'blog_categorie_id');
@@ -126,6 +127,24 @@ class BlogControllerPG extends Controller
             return view('pages.erreur')->withErrors($errorMess);
         }
     }
+    public function recapBlogCategory($slug){
+        try{
+            $formatedSlug = str_replace("-"," ",$slug);
+            $uppercaseSlug = strtoupper($formatedSlug);
+            $allSlug['slug'] = $slug;
+            $allSlug['uppercaseSlug'] = $uppercaseSlug;
+            //$blogdata = new Blogdata();
+            //$allCategoryBlog = $blogdata->blog_categories_select_all();
+            $Blogdata_PG=new Blogdata_PG(); 
+            $allCategoryBlog = $Blogdata_PG->a_blog_categories_select_all();
+
+            return view('pages.recapAllBlogCategory',['slug'=>$allSlug,'allCategoryBlog'=>$allCategoryBlog]);
+        }catch ( \Exception $e) {
+            $this->TraiteErreur($errorMess, $e);
+            return view('pages.erreur')->withErrors($errorMess);
+        }
+    }
+
     public function TraiteErreur(&$errorMess, $e){
         $ErrLine = $e->getLine();
         $ErrFile = $e->getFile();

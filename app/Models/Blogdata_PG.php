@@ -121,7 +121,7 @@ class Blogdata_PG extends Bddclass
             
             public function a_blog_posts_select_slug_and_blog_id($slug,$blogID) {                    
                         $Pdo = $this->connectbase("blogareaPG");
-                        $sqlExecSP   = "CALL blog_posts_select_slug_and_blog_id(?,?)";                        
+                        $sqlExecSP   = "SELECT * from  blog_posts_select_slug_and_blog_id(?,?)";                        
                         $stmt = $Pdo->prepare($sqlExecSP);
                         $stmt->bindParam(1, $blogID,   PDO::PARAM_INT);
                         $stmt->bindParam(2, $slug,   PDO::PARAM_STR,255);                        
@@ -130,6 +130,19 @@ class Blogdata_PG extends Bddclass
                         $stmt = null;
                         $Pdo = null;			                    
                         return $result;                    
+                }
+            
+            public function a_blog_post_categories_select($blogpostid) {                                
+                                    $Pdo = $this->connectbase("blogarea");
+                                    $sqlExecSP   = "SELECT * from  a_blog_post_categories_select(?)";                                    
+                                    $stmt = $Pdo->prepare($sqlExecSP);
+                                    $stmt->bindParam(1, $blogpostid,   PDO::PARAM_INT);
+                                    $stmt->execute();
+                                    $result=$stmt->FetchAll();
+                                    $NbrRecord=$stmt->rowCount();
+                                    $stmt = null;
+                                    $Pdo = null;                    
+                                    return $result;                                
                 }
                                                                     
 }
