@@ -93,6 +93,45 @@ class Blogdata_PG extends Bddclass
                 $Pdo = null;        
                 return $pRecID;
                 }
+
+            public function a_blog_categories_select_all() {                    
+                        $Pdo = $this->connectbase("blogareaPG");
+                        $sqlExecSP   = "SELECT * from  a_blog_categories_select_all()";                        
+                        $stmt = $Pdo->prepare($sqlExecSP);                        
+                        $stmt->execute();                        
+                        if ($stmt->rowCount() > 0) {
+                            $result=$stmt->FetchAll(PDO::FETCH_ASSOC);}
+                            else {$result=null;}		
+                        $stmt = null;
+                        $Pdo = null;			                        
+                        return $result;                                        
+                }
+                
+            public function a_executerequetesql(&$requetesql) {                                          
+                    $Pdo = $this->connectbase("blogareaPG");
+                    $stmt  = $Pdo->prepare($requetesql);
+                    $stmt->execute();
+                    if ($stmt->rowCount() > 0) {
+                        $result=$stmt->fetch(PDO::FETCH_ASSOC);
+                    }else {$result=null;}
+                    $Pdo = null;
+                    $stmt = null;    
+                    return $result;                
+                }
+            
+            public function a_blog_posts_select_slug_and_blog_id($slug,$blogID) {                    
+                        $Pdo = $this->connectbase("blogareaPG");
+                        $sqlExecSP   = "CALL blog_posts_select_slug_and_blog_id(?,?)";                        
+                        $stmt = $Pdo->prepare($sqlExecSP);
+                        $stmt->bindParam(1, $blogID,   PDO::PARAM_INT);
+                        $stmt->bindParam(2, $slug,   PDO::PARAM_STR,255);                        
+                        $stmt->execute();
+                        $result=$stmt->Fetch();                        
+                        $stmt = null;
+                        $Pdo = null;			                    
+                        return $result;                    
+                }
+                                                                    
 }
 
 

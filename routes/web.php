@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OffreController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\BlogControllerPG;
 
 /*
 |--------------------------------------------------------------------------
@@ -189,14 +190,14 @@ Route::get('coworking-republique-paris', [TestController::class, 'coworkingRepub
 //coworking-gare-du-nord-paris
 Route::get('coworking-gare-du-nord-paris', [TestController::class, 'coworkingGareDuNordParis']);
 
-Route::get('blog', [BlogController::class, 'testBlog']);
-Route::get('blog/{slug}', [BlogController::class, 'oneBlog']);
-Route::get('allBlog/{blogID}', [BlogController::class, 'allBlog']);
-Route::get('tag/{slug}', [BlogController::class, 'recapBlogCategory']);
-Route::get('alldataBlogByCategory/{slug}', [BlogController::class, 'alldataBlogByCategory']);
+Route::get('blog', [BlogControllerPG::class, 'testBlog']);
+Route::get('blog/{slug}', [BlogControllerPG::class, 'oneBlog']);
+Route::get('allBlog/{blogID}', [BlogControllerPG::class, 'allBlog']);
+Route::get('tag/{slug}', [BlogControllerPG::class, 'recapBlogCategory']);
+Route::get('alldataBlogByCategory/{slug}', [BlogControllerPG::class, 'alldataBlogByCategory']);
 
-Route::get('guide', [BlogController::class, 'testBlog']);
-Route::get('guide/{slug}', [BlogController::class, 'oneBlog']);
+Route::get('guide', [BlogControllerPG::class, 'testBlog']);
+Route::get('guide/{slug}', [BlogControllerPG::class, 'oneBlog']);
 
 Route::get('profile', [LoginController::class, 'profileUser']);
 
