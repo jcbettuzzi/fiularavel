@@ -73,12 +73,12 @@ class BlogControllerPG extends Controller
     public function alldataBlogByCategory($slug){
         try{
             $Blogdata_PG=new Blogdata_PG(); 
-            $sql = "SELECT blog_posts.*, 
-                    GROUP_CONCAT(blog_categories.category_name) AS categoryName,
-                    GROUP_CONCAT(blog_categories.slug) AS blogCategoriesSlug
+            $sql = "SELECT blog_posts.*,                     
+                    string_agg(DISTINCT blog_categories.category_name, ',') AS categoryName,
+                    string_agg(DISTINCT blog_categories.slug, ',') AS blogCategoriesSlug    
                     FROM blog_posts
-                    LEFT OUTER JOIN blog_post_categories ON blog_post_categories.blog_post_id = blog_posts.blog_posts_id
-                    LEFT OUTER JOIN blog_categories ON blog_post_categories.blog_categorie_id = blog_categories.blog_categorie_id
+                    LEFT OUTER JOIN blog_post_categories ON blog_post_categories.blog_posts_id = blog_posts.blog_posts_id
+                    LEFT OUTER JOIN blog_categories ON blog_post_categories.blog_categories_id = blog_categories.blog_categories_id
                     WHERE blog_posts.areaproduction = 1 and blog_categories.slug = '".$slug."'
                     GROUP BY blog_posts.blog_posts_id
                     ORDER BY blog_posts.posted_at DESC;";

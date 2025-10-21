@@ -112,7 +112,7 @@ class Blogdata_PG extends Bddclass
                     $stmt  = $Pdo->prepare($requetesql);
                     $stmt->execute();
                     if ($stmt->rowCount() > 0) {
-                        $result=$stmt->fetch(PDO::FETCH_ASSOC);
+                        $result=$stmt->FetchAll(PDO::FETCH_ASSOC);
                     }else {$result=null;}
                     $Pdo = null;
                     $stmt = null;    
@@ -138,7 +138,7 @@ class Blogdata_PG extends Bddclass
                                     $stmt = $Pdo->prepare($sqlExecSP);
                                     $stmt->bindParam(1, $blogpostid,   PDO::PARAM_INT);
                                     $stmt->execute();
-                                    $result=$stmt->FetchAll();
+                                    $result=$stmt->FetchAll(PDO::FETCH_ASSOC);
                                     $NbrRecord=$stmt->rowCount();
                                     $stmt = null;
                                     $Pdo = null;                    
