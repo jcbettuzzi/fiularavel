@@ -29,7 +29,7 @@ class BlogControllerPG extends Controller
             //$allBlog = $this->allBlog($blogID);
             //$firstBlog = $allBlog[0];
 
-            return view('pages.blogAccueil',['allCategoryBlog'=>$allCategoryBlog,'blogID'=>$blogID]);
+            return view('pages.blogAccueilPG',['allCategoryBlog'=>$allCategoryBlog,'blogID'=>$blogID]);
         }catch ( \Exception $e) {
             $this->TraiteErreur($errorMess, $e);
             return view('pages.erreur')->withErrors($errorMess);
@@ -53,8 +53,8 @@ class BlogControllerPG extends Controller
                     ORDER BY blog_posts.posted_at DESC;";                     
                     */
             $sql = "SELECT blog_posts.*, 
-                    string_agg(DISTINCT blog_categories.category_name, ',') AS categoryName,
-                    string_agg(DISTINCT blog_categories.slug, ',') AS blogCategoriesSlug                    
+                    string_agg(DISTINCT blog_categories.category_name, ',') AS categoryname,
+                    string_agg(DISTINCT blog_categories.slug, ',') AS blogcategoriesslug                    
                     FROM blog_posts
                     LEFT OUTER JOIN blog_post_categories ON blog_post_categories.blog_posts_id = blog_posts.blog_posts_id
                     LEFT OUTER JOIN blog_categories ON blog_post_categories.blog_categories_id = blog_categories.blog_categories_id
@@ -74,8 +74,8 @@ class BlogControllerPG extends Controller
         try{
             $Blogdata_PG=new Blogdata_PG(); 
             $sql = "SELECT blog_posts.*,                     
-                    string_agg(DISTINCT blog_categories.category_name, ',') AS categoryName,
-                    string_agg(DISTINCT blog_categories.slug, ',') AS blogCategoriesSlug    
+                    string_agg(DISTINCT blog_categories.category_name, ',') AS categoryname,
+                    string_agg(DISTINCT blog_categories.slug, ',') AS blogcategoriesslug    
                     FROM blog_posts
                     LEFT OUTER JOIN blog_post_categories ON blog_post_categories.blog_posts_id = blog_posts.blog_posts_id
                     LEFT OUTER JOIN blog_categories ON blog_post_categories.blog_categories_id = blog_categories.blog_categories_id
@@ -150,7 +150,7 @@ class BlogControllerPG extends Controller
             $Blogdata_PG=new Blogdata_PG(); 
             $allCategoryBlog = $Blogdata_PG->a_blog_categories_select_all();
 
-            return view('pages.recapAllBlogCategory',['slug'=>$allSlug,'allCategoryBlog'=>$allCategoryBlog]);
+            return view('pages.recapAllBlogCategoryPG',['slug'=>$allSlug,'allCategoryBlog'=>$allCategoryBlog]);
         }catch ( \Exception $e) {
             $this->TraiteErreur($errorMess, $e);
             return view('pages.erreur')->withErrors($errorMess);
