@@ -39,13 +39,25 @@ class BlogControllerPG extends Controller
         try{
 
             $Blogdata_PG=new Blogdata_PG(); 
-    
+            // string_agg(DISTINCT a.name, ',')  https://coderwall.com/p/eyknwa/postgres-group_concat
+    /*
             $sql = "SELECT blog_posts.*, 
                     GROUP_CONCAT(blog_categories.category_name) AS categoryName,
                     GROUP_CONCAT(blog_categories.slug) AS blogCategoriesSlug
                     FROM blog_posts
-                    LEFT OUTER JOIN blog_post_categories ON blog_post_categories.blog_post_id = blog_posts.blog_posts_id
-                    LEFT OUTER JOIN blog_categories ON blog_post_categories.blog_categorie_id = blog_categories.blog_categorie_id
+                    LEFT OUTER JOIN blog_post_categories ON blog_post_categories.blog_posts_id = blog_posts.blog_posts_id
+                    LEFT OUTER JOIN blog_categories ON blog_post_categories.blog_categories_id = blog_categories.blog_categories_id
+                    WHERE blog_posts.areaproduction = 1
+                    AND blog_categories.blog_id = ".$blogID."
+                    GROUP BY blog_posts.blog_posts_id
+                    ORDER BY blog_posts.posted_at DESC;";                     
+                    */
+            $sql = "SELECT blog_posts.*, 
+                    string_agg(DISTINCT blog_categories.category_name, ',') AS categoryName,
+                    string_agg(DISTINCT blog_categories.slug, ',') AS blogCategoriesSlug                    
+                    FROM blog_posts
+                    LEFT OUTER JOIN blog_post_categories ON blog_post_categories.blog_posts_id = blog_posts.blog_posts_id
+                    LEFT OUTER JOIN blog_categories ON blog_post_categories.blog_categories_id = blog_categories.blog_categories_id
                     WHERE blog_posts.areaproduction = 1
                     AND blog_categories.blog_id = ".$blogID."
                     GROUP BY blog_posts.blog_posts_id

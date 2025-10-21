@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OffreController;
 use App\Http\Controllers\TestController;
-use App\Http\Controllers\BlogController;
+//use App\Http\Controllers\BlogController;
 use App\Http\Controllers\BlogControllerPG;
 
 /*
