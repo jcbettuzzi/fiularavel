@@ -133,7 +133,7 @@ class Blogdata_PG extends Bddclass
                 }
             
             public function a_blog_post_categories_select($blogpostid) {                                
-                                    $Pdo = $this->connectbase("blogarea");
+                                    $Pdo = $this->connectbase("blogareaPG");
                                     $sqlExecSP   = "SELECT * from  a_blog_post_categories_select(?)";                                    
                                     $stmt = $Pdo->prepare($sqlExecSP);
                                     $stmt->bindParam(1, $blogpostid,   PDO::PARAM_INT);
