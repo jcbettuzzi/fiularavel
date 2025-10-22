@@ -144,6 +144,21 @@ class Blogdata_PG extends Bddclass
                                     $Pdo = null;                    
                                     return $result;                                
                 }
+                
+            public function a_blog_posts_select_pourunblog_et_unecategorie($blogid,$categorieid) {
+                $sql="SELECT * FROM blog_posts  left outer join  blog_post_categories  on blog_post_categories.blog_posts_id =blog_posts.blog_posts_id  
+                WHERE blog_id=".$blogid." AND blog_post_categories.blog_categories_id =".$categorieid."  order by posted_at DESC;";
+                $Pdo = $this->connectbase("blogareaPG");
+                $stmt  = $Pdo->prepare($sql);
+                $stmt->execute();
+                if ($stmt->rowCount() > 0) {
+                    $result=$stmt->FetchAll(PDO::FETCH_ASSOC);
+                }else {$result=null;}
+                $Pdo = null;
+                $stmt = null;    
+                return $result;                
+            }
+
                                                                     
 }
 

@@ -126,9 +126,10 @@ class BlogControllerPG extends Controller
             $categoryBlog = $Blogdata_PG->a_blog_post_categories_select($oneBlog['blog_posts_id']);
             $allCategoryName = array_column($categoryBlog,'category_name');            
             $oneBlog['categoryOfBlog'] = $allCategoryName;
-            $oneBlog['catogory_id_blog'] = array_column($categoryBlog,'blog_categorie_id');
-            $oneBlog['catogory_blog_slug'] = array_column($categoryBlog,'slug');
-            $oneBlog['suggestionOneBlog'] = $blogdata->blog_posts_select_pourunblog_et_unecategorie($oneBlog['blog_id'],$categoryBlog[0]['blog_categorie_id']);
+            $oneBlog['catogory_id_blog'] = array_column($categoryBlog,'blog_categories_id');
+            $oneBlog['catogory_blog_slug'] = array_column($categoryBlog,'slug');            
+            //$oneBlog['suggestionOneBlog'] = $blogdata->blog_posts_select_pourunblog_et_unecategorie($oneBlog['blog_id'],$categoryBlog[0]['blog_categories_id']);
+            $oneBlog['suggestionOneBlog'] =$Blogdata_PG->a_blog_posts_select_pourunblog_et_unecategorie($oneBlog['blog_id'],$categoryBlog[0]['blog_categories_id']);
             foreach($oneBlog['suggestionOneBlog'] as $key => $oneSuggestion){
                 $folderImageByBlog = asset("recupereimageBLOG/".$oneSuggestion['blog_posts_id']."/");
                 $oneBlog['suggestionOneBlog'][$key]['imageLargePathOneSuggestion'] = $folderImageByBlog."/".$oneSuggestion['image_large']."/3";
