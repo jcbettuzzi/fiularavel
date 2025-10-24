@@ -54,10 +54,14 @@ class Connection {
     
     public function connectBLOGAREA_PG() {
         //$Myhost = "192.168.1.6";
-        $Myhost = "192.168.1.18";
+        //$Myhost = "192.168.1.18";
         //$Myhost = "192.168.3.23";
-        $MyUser =  "postgres";    
-        $MyMdp = "xtiever";    
+        //$MyUser =  "postgres";    
+        //$MyMdp = "xtiever";    
+
+        $Myhost = getenv('BLOGAREAHOST_PG');
+        $MyUser = getenv('BLOGAREAUSER_PG');
+        $MyMdp = getenv('BLOGAREAMDP_PG');
         $dsn = "pgsql:host=$Myhost;port=5432;dbname=blogarea;";
         $pdo = new PDO($dsn, "postgres", "xtiever", [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
         return $pdo;
